@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Risk Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">AI-Powered Project Risk Management</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <!-- Risk Overview Card -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-semibold mb-4">Risk Overview</h2>
+                <div class="flex items-center justify-center">
+                    <canvas id="riskGauge" width="200" height="200"></canvas>
+                </div>
+                <div class="mt-4 text-center">
+                    <span id="riskScore" class="text-3xl font-bold">0.0</span>
+                    <span id="riskLevel" class="ml-2 px-3 py-1 rounded-full text-sm font-medium"></span>
+                </div>
+            </div>
+
+            <!-- Project Status Card -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-semibold mb-4">Project Status</h2>
+                <div class="space-y-3">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Schedule Variance</label>
+                        <div class="mt-1 flex items-center">
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div id="scheduleBar" class="bg-yellow-500 h-2.5 rounded-full" style="width: 0%"></div>
+                            </div>
+                            <span id="scheduleValue" class="ml-2 text-sm text-gray-600">0%</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Budget Variance</label>
+                        <div class="mt-1 flex items-center">
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div id="budgetBar" class="bg-red-500 h-2.5 rounded-full" style="width: 0%"></div>
+                            </div>
+                            <span id="budgetValue" class="ml-2 text-sm text-gray-600">0%</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Resource Changes</label>
+                        <div class="mt-1 flex items-center">
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div id="resourceBar" class="bg-blue-500 h-2.5 rounded-full" style="width: 0%"></div>
+                            </div>
+                            <span id="resourceValue" class="ml-2 text-sm text-gray-600">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risk Factors Card -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-semibold mb-4">Risk Factors</h2>
+                <canvas id="riskFactorsChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Alerts Section -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">Recent Alerts</h2>
+            <div id="alertsContainer" class="space-y-3">
+                <!-- Alerts will be populated here -->
+            </div>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Risk Analysis Chat</h2>
+            <div class="border rounded-lg p-4 mb-4 h-64 overflow-y-auto" id="chatMessages">
+                <!-- Chat messages will appear here -->
+            </div>
+            <div class="flex">
+                <input type="text" id="chatInput" placeholder="Ask about project risks..." 
+                       class="flex-1 border rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button id="sendButton" class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700">
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
