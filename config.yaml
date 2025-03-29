@@ -1,0 +1,34 @@
+# API Configuration
+api_keys:
+  news_api: "your_newsapi_key_here"  # https://newsapi.org
+  fred_api: "your_fred_key_here"     # https://fred.stlouisfed.org/docs/api/api_key.html
+
+# Risk Thresholds
+risk_thresholds:
+  critical: 0.8
+  high: 0.6  
+  medium: 0.4
+  low: 0.2
+
+# Notification Settings
+notifications:
+  email:
+    enabled: true
+    smtp_server: "smtp.example.com"
+    smtp_port: 587
+    sender: "risk-system@company.com"
+    recipients:
+      - "project-managers@company.com"
+      - "executives@company.com"
+  sms:
+    enabled: false
+    provider: "twilio"  # Example provider
+    account_sid: ""
+    auth_token: ""
+    from_number: "+1234567890"
+
+# Project Defaults
+default_project_settings:
+  schedule_variance_warning: 0.15
+  budget_variance_warning: 0.1
+  resource_change_warning: 0.2
